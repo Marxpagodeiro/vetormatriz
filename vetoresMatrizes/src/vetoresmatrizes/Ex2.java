@@ -18,20 +18,25 @@ public class Ex2 {
     public static void main(String[] args) {
         Random random = new Random();
         int vetor[] = new int[10];
-        int vetorMenor[] = new int [10];
         for (int i=0;i<10;i++){
             vetor[i]=random.nextInt(200);
         }
-        for(int j =0;j<vetor.length;j++){
-            if(vetor[j]>vetor[j+1]){
-                vetorMenor[j]=vetor[j];
-            }
+        for(int j =0;j<vetor.length - 1;j++){
+            for(int h=0;h<vetor.length -j -1;h++){
+               if (vetor[h] < vetor[h + 1]) {
+                    int temp = vetor[h];
+                    vetor[h] = vetor[h + 1];
+                    vetor[h + 1] = temp;
+                }
+            }   
         }
         
-        System.out.println("Vetor Menor");
-        for (int h = 0; h < vetorMenor.length; h++) {
-            System.out.println(vetorMenor[h]);
+        System.out.println("-------------------------------------");
+        System.out.println("Vetor em ordem descrecente: ");
+        for (int h = 0; h < vetor.length; h++) {
+            System.out.println(vetor[h]);
         }
+        System.out.println("-------------------------------------");
     }
     
 }
